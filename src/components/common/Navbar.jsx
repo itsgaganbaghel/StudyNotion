@@ -33,7 +33,7 @@ function Navbar() {
     (async () => {
       setLoading(true);
       try {
-        console.log(categories.CATEGORIES_API)
+        // console.log(categories.CATEGORIES_API)
         const res = await apiConnector("GET", categories.CATEGORIES_API);
         setSubLinks(res.data.data);
       } catch (error) {
