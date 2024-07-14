@@ -1,13 +1,13 @@
 //SmallScreen.jsx
 
 import { useEffect, useState } from "react"
-import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
+import {  AiOutlineShoppingCart } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, matchPath, useLocation, useNavigate } from "react-router-dom"
-import * as Icons from "react-icons/vsc"
+// import * as Icons from "react-icons/vsc"
 import {logout} from "../../services/operations/authAPI"
-import { VscSignOut } from "react-icons/vsc"
+// import { VscSignOut } from "react-icons/vsc"
 
 // import logo from "../../assets/Logo/Logo-Full-Light.png"
 import { NavbarLinks } from "../../data/navbar-links"
