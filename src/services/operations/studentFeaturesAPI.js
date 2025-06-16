@@ -64,7 +64,7 @@ export async function buyCourse(
 
     const options = {
       key: process.env.RAZORPAY_KEY,
-      // key: "rzp_test_sJ3SEUpmp6LdVs" , 
+      // key: "rzp_test_sJ3SEUpmp6LdVs" ,
       currency: orderResponse.data.message.currency,
       amount: `${orderResponse.data.message.amount}`,
       order_id: orderResponse.data.message.id,
