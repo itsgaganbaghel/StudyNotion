@@ -6,7 +6,7 @@ dotenv.config();
 
 exports.contactUsController = async (req, res) => {
   const { email, firstname, lastname, message, phoneNo, countrycode } = req.body
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const emailRes = await mailSender(
       email,
@@ -20,8 +20,8 @@ exports.contactUsController = async (req, res) => {
       getFeedback(email, firstname, lastname, message, phoneNo, countrycode)
     )
 
-    console.log("Email Res ", emailRes)
-    console.log("feedback email  Res ", emailRes2);
+    // console.log("Email Res ", emailRes)
+    // console.log("feedback email  Res ", emailRes2);
     return res.json({
       success: true,
       message: "Email sended successfully !!",

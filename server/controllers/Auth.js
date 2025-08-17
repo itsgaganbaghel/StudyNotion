@@ -30,7 +30,7 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     });
-    console.log("OTP GENERATED => ", otp);
+    // console.log("OTP GENERATED => ", otp);
 
     //checking... uniqueness of the oTP
     // let result = await OTP.findOne({otp: otp});
@@ -47,8 +47,8 @@ exports.sendotp = async (req, res) => {
 
     const result = await OTP.findOne({ otp: otp });
     // console.log("Result is Generate OTP Func");
-    console.log("--------------OTP-------------", otp);
-    console.log("Result", result);
+    // console.log("--------------OTP-------------", otp);
+    // console.log("Result", result);
     while (result) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
@@ -59,7 +59,7 @@ exports.sendotp = async (req, res) => {
     const otpPayload = { email, otp };
     //creating... an entry in Database for OTP
     const otpBody = await OTP.create(otpPayload);
-    console.log("otpBODY -> ", otpBody);
+    // console.log("otpBODY -> ", otpBody);
 
     //sending...final response
     res.status(200).json({
@@ -123,7 +123,7 @@ exports.signup = async (req, res) => {
     // Find the most recent OTP for the email
     const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1);
     // const response = await OTP.find({ email }).sort({ createdAt: -1 });
-    console.log(response);
+    // console.log(response);
     if (response.length === 0) {
       // OTP not found for the email
       return res.status(400).json({
@@ -256,7 +256,7 @@ exports.changePassword = async (req, res) => {
         message: "User not found",
       });
     }
-    console.log("user for updating password => ", userDetails);
+    // console.log("user for updating password => ", userDetails);
 
     if (
       req.user.id == "65e5f42e80d7655121be02c0" ||
@@ -301,7 +301,7 @@ exports.changePassword = async (req, res) => {
       { new: true }
       
     );
-    console.log(updatedUserDetails , "updatedUserDetails data in auth ")
+    // console.log(updatedUserDetails , "updatedUserDetails data in auth ")
 
     //send mail - Password updated
     try {
@@ -313,7 +313,7 @@ exports.changePassword = async (req, res) => {
           `${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
         )
       );
-      console.log("Email sent successfully:", emailResponse.response);
+      // console.log("Email sent successfully:", emailResponse.response);
     } catch (error) {
       // If there's an error sending the email, log the error and return a 500 (Internal Server Error) error
       console.error("Error occurred while sending email:", error);

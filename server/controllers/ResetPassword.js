@@ -33,13 +33,14 @@ exports.resetPasswordToken = async (req, res) => {
         //link generation...
         //create url
         // const url = `http://localhost:3000/update-password/${token}`;
-        const url = `https://study-notion-mega-project-3602xqx0r-dhruv9316.vercel.app/update-password/${token}`;
+        const url = `https://studynotionbygaganbaghel.vercel.app/update-password/${token}`;
 
         //sending... mail
         await mailSender(email, 
             " Reset Ur Password => ",
             `Password Reset Link: ${url}`);
-            console.log("token ==>", token);
+            // console.log("token ==>", token);
+            // console.log("url ==>", url);
 
         //returning... final response
         return res.json({
@@ -65,7 +66,7 @@ exports.resetPassword = async (req, res) => {
         // fetching... data
         const {password, confirmPassword, token} = req.body;
         // const {token} = req.body.token || req.cookies.token;
-        console.log("token---------------------->", token);
+        // console.log("token---------------------->", token);
         //validation
         if(password !== confirmPassword) {
             return res.json({
